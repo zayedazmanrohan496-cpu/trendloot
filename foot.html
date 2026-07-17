@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>trendlooot - Footer Only</title>
+    <!-- Font Awesome (Already in your main file) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts (Already in your main file) -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* --- BASE RESET & CONTAINER --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .tl-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* --- FOOTER STYLES --- */
+        .tl-footer {
+            background-color: #111111;
+            color: #ffffff;
+            padding: 80px 0 30px 0;
+            position: relative;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 2fr;
+            gap: 40px;
+            margin-bottom: 60px;
+        }
+
+        /* Column 1: Brand Info */
+        .footer-brand .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            letter-spacing: 0.5px;
+        }
+
+        .footer-brand .logo span {
+            color: #ff3e6c;
+        }
+
+        .footer-brand p {
+            color: #aaa;
+            font-size: 0.9rem;
+            line-height: 1.6;
+            margin-bottom: 25px;
+            padding-right: 20px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+
+        .social-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: #222;
+            color: #fff;
+            border-radius: 50%;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-size: 1rem;
+        }
+
+        .social-icon:hover {
+            background-color: #ff3e6c;
+            transform: translateY(-3px);
+        }
+
+        /* Columns 2 & 3: Links */
+        .footer-col h4 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 25px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-col h4::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 35px;
+            height: 2px;
+            background-color: #ff3e6c;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 15px;
+        }
+
+        .footer-links a {
+            color: #aaa;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+
+        .footer-links a:hover {
+            color: #ff3e6c;
+            transform: translateX(5px);
+        }
+
+        /* Column 4: Newsletter */
+        .footer-newsletter h4 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 25px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-newsletter h4::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 35px;
+            height: 2px;
+            background-color: #ff3e6c;
+        }
+
+        .footer-newsletter p {
+            color: #aaa;
+            font-size: 0.9rem;
+            margin-bottom: 20px;
+            line-height: 1.5;
+        }
+
+        .newsletter-form {
+            display: flex;
+            position: relative;
+        }
+
+        .newsletter-form input {
+            width: 100%;
+            padding: 14px 20px;
+            padding-right: 60px;
+            background-color: #222;
+            border: 1px solid #333;
+            border-radius: 50px;
+            color: #fff;
+            font-size: 0.9rem;
+            outline: none;
+            transition: border-color 0.3s ease;
+        }
+
+        .newsletter-form input:focus {
+            border-color: #ff3e6c;
+        }
+
+        .newsletter-form button {
+            position: absolute;
+            right: 5px;
+            top: 5px;
+            bottom: 5px;
+            width: 45px;
+            background-color: #ff3e6c;
+            border: none;
+            border-radius: 50%;
+            color: #fff;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .newsletter-form button:hover {
+            background-color: #e0325c;
+        }
+
+        /* --- FOOTER BOTTOM --- */
+        .footer-bottom {
+            border-top: 1px solid #222;
+            padding-top: 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .footer-bottom p {
+            color: #777;
+            font-size: 0.85rem;
+        }
+
+        .payment-gateways {
+            display: flex;
+            gap: 15px;
+            color: #777;
+            font-size: 1.5rem;
+        }
+
+        .payment-gateways i:hover {
+            color: #aaa;
+            cursor: pointer;
+        }
+
+        /* --- RESPONSIVE BREAKPOINTS --- */
+        @media (max-width: 992px) {
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 40px;
+            }
+            .footer-brand p {
+                padding-right: 0;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .tl-footer {
+                padding: 60px 0 30px 0;
+            }
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 35px;
+            }
+            .footer-bottom {
+                flex-direction: column;
+                text-align: center;
+                gap: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- --- FOOTER START --- -->
+    <footer class="tl-footer">
+        <div class="tl-container">
+            
+            <div class="footer-grid">
+                
+                <!-- Column 1: Brand Info -->
+                <div class="footer-brand">
+                    <div class="logo">trend<span>looot</span></div>
+                    <p>আপনার পছন্দের সেরা সব ট্রেন্ডি লাইফস্টাইল প্রোডাক্ট নিয়ে এলো trendlooot। কোয়ালিটি এবং আধুনিকতার এক অনন্য সংমিশ্রণ।</p>
+                    <div class="social-links">
+                        <a href="https://www.facebook.com/profile.php?id=61591234920867" class="social-icon" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-icon" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-icon" aria-label="Twitter"><i class="fab fa-x-twitter"></i></a>
+                        <a href="#" class="social-icon" aria-label="Youtube"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+
+                <!-- Column 2: Quick Links (Requested Pages) -->
+                <div class="footer-col">
+                    <h4>Product Categories</h4>
+                    <ul class="footer-links">
+                        <li><a href="https://dev-trendloot-online-store.pantheonsite.io/product-category/home-decors/">Home Decors</a></li>
+                        <li><a href="https://dev-trendloot-online-store.pantheonsite.io/product-category/clothes/">Clothes</a></li>
+                        <li><a href="https://dev-trendloot-online-store.pantheonsite.io/product-category/digital-products/">Digital Products</a></li>
+                        <li><a href="https://dev-trendloot-online-store.pantheonsite.io/product-category/kitchen-products/">Kitchen Products</a></li>
+                        <li><a href="https://dev-trendloot-online-store.pantheonsite.io/product-category/baby-products/">Baby Products</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 3: Policy Links -->
+                <div class="footer-col">
+                    <h4>Products From</h4>
+                    <ul class="footer-links">
+                        <li><a href="https://dev-trendloot-online-store.pantheonsite.io/product-category/trendloot/">Trendloot</a></li>
+                        <li><a href="https://dev-trendloot-online-store.pantheonsite.io/product-category/daraz/">Daraz</a></li>
+                        <li><a href="https://dev-trendloot-online-store.pantheonsite.io/product-category/amazon/">Amazon</a></li>
+                        <li><a href="https://dev-trendloot-online-store.pantheonsite.io/product-category/shopify/">Shopify</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 4: Newsletter -->
+                <div class="footer-newsletter">
+                    <h4>Stay Updated</h4>
+                    <p>আমাদের নতুন কালেকশন এবং ধামাকা অফারগুলোর আপডেট সবার আগে পেতে সাবস্ক্রাইব করুন।</p>
+                    <form class="newsletter-form" id="newsletter-form">
+                        <input type="email" placeholder="Your email address" required>
+                        <button type="submit" aria-label="Subscribe"><i class="fas fa-paper-plane"></i></button>
+                    </form>
+                </div>
+
+            </div>
+
+            <!-- Footer Bottom -->
+            <div class="footer-bottom">
+                <p>&copy; 2026 trendlooot. All Rights Reserved. Designed with <i class="fas fa-heart" style="color: #ff3e6c;"></i></p>
+                <div class="payment-gateways">
+                    <i class="fab fa-cc-visa" title="Visa"></i>
+                    <i class="fab fa-cc-mastercard" title="Mastercard"></i>
+                    <i class="fab fa-cc-paypal" title="Paypal"></i>
+                    <i class="fas fa-money-bill-wave" title="Cash On Delivery"></i>
+                </div>
+            </div>
+
+        </div>
+    </footer>
+    <!-- --- FOOTER END --- -->
+
+    <script>
+        // Newsletter Submit Handler
+        document.getElementById('newsletter-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const emailInput = this.querySelector('input').value;
+            alert('Thank you for subscribing, ' + emailInput + '!');
+            this.reset();
+        });
+    </script>
+</body>
+</html>

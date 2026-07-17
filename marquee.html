@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>trendlooot - Perfect Fixed Navbar & Marquee</title>
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* --- CORE BASE SETTINGS --- */
+        html, body {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            overflow-x: hidden; /* ডানে-বামে অতিরিক্ত স্ক্রল হওয়া বন্ধ করবে */
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            /* মার্কি এবং ন্যাভবারের মিলিত উচ্চতার কারণে যাতে মেইন কন্টেন্ট চাপা না পড়ে */
+            padding-top: 130px; 
+            background-color: #ffffff;
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding-top: 110px;
+            }
+        }
+
+        .tl-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* ==========================================================================
+           FIXED TOP HEADER WRAPPER (COMBINED MARQUEE & NAVBAR)
+           ========================================================================== */
+        .tl-top-fixed-wrapper {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 10000; /* সবকিছু থেকে উপরে রাখবে */
+            background-color: transparent;
+            transition: box-shadow 0.4s ease;
+        }
+
+        /* স্ক্রল করলে পুরো হেডারে শ্যাডো আসবে */
+        .tl-top-fixed-wrapper.scrolled {
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+        }
+
+        /* ==========================================================================
+           MARQUEE STYLES (NO MARGIN & FULL-WIDTH)
+           ========================================================================== */
+        .tl-marquee-wrapper {
+            width: 100% !important;
+            max-width: 100vw !important;
+            margin: 0 !important;
+            padding: 12px 0;
+            background-color: #ff3e6c; 
+            color: #ffffff;
+            font-size: 0.95rem;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+            overflow: hidden;
+            display: flex;
+        }
+
+        @media (max-width: 768px) {
+            .tl-marquee-wrapper {
+                padding: 10px 0;
+                font-size: 0.85rem;
+            }
+        }
+
+        .tl-marquee-container {
+            display: flex;
+            white-space: nowrap;
+            width: max-content; 
+        }
+
+        .tl-marquee-track {
+            display: flex;
+            align-items: center;
+            flex-shrink: 0; 
+            animation: marqueeAnimation 25s linear infinite;
+        }
+
+        .tl-marquee-item {
+            display: inline-flex;
+            align-items: center;
+            padding: 0 60px; 
+            flex-shrink: 0;
+        }
+
+        .tl-marquee-item i {
+            margin-right: 10px;
+            font-size: 1.05rem;
+        }
+
+        @keyframes marqueeAnimation {
+            0% { transform: translateX(0%); }
+            100% { transform: translateX(-100%); }
+        }
+
+        /* ==========================================================================
+           NAVBAR STYLES
+           ========================================================================== */
+        .tl-header {
+            width: 100%;
+            background-color: rgba(255, 255, 255, 1); /* ডিফল্ট ব্যাকগ্রাউন্ড */
+            transition: background-color 0.4s ease, padding 0.4s ease, backdrop-filter 0.4s ease;
+            padding: 20px 0;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        /* স্ক্রল হওয়ার পর ন্যাভবারের স্টাইল পরিবর্তন */
+        .tl-top-fixed-wrapper.scrolled .tl-header {
+            background-color: rgba(255, 255, 255, 0.95);
+            padding: 15px 0;
+            backdrop-filter: blur(10px);
+        }
+
+        .navbar-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        /* Logo */
+        .logo a {
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: #111;
+            text-decoration: none;
+            letter-spacing: 0.5px;
+        }
+
+        .logo a span {
+            color: #ff3e6c; 
+        }
+
+        /* Navigation Links */
+        .nav-menu {
+            display: flex;
+            align-items: center;
+            list-style: none;
+            gap: 35px;
+        }
+
+        .nav-item a {
+            text-decoration: none;
+            color: #1a1a1a;
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            position: relative;
+            padding: 5px 0;
+        }
+
+        .nav-item a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: #ff3e6c;
+            transition: width 0.3s ease;
+        }
+
+        .nav-item a:hover { color: #ff3e6c; }
+        .nav-item a:hover::after { width: 100%; }
+
+        /* Action Buttons */
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .action-btn {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            background: none;
+            border: none;
+            color: #1a1a1a;
+            font-size: 1.2rem;
+            cursor: pointer;
+            position: relative;
+            transition: color 0.3s ease;
+        }
+
+        .action-btn:hover { color: #ff3e6c; }
+
+        .action-btn .cart-count {
+            position: absolute;
+            top: -12px;
+            right: -32px; 
+            background-color: #ff3e6c;
+            color: #fff;
+            font-size: 0.65rem;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-weight: 600;
+            line-height: 1.2;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        /* Hamburger Menu Icon */
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            background: none;
+            border: none;
+            font-size: 1.4rem;
+            color: #111;
+        }
+
+        /* --- RESPONSIVE MEDIA QUERY --- */
+        @media (max-width: 768px) {
+            .hamburger {
+                display: block;
+                order: 3;
+            }
+
+            .nav-actions {
+                order: 2;
+                margin-left: auto;
+                margin-right: 45px;
+                gap: 12px;
+            }
+
+            .nav-menu {
+                position: fixed;
+                top: -100%;
+                left: 0;
+                width: 100%;
+                background-color: #ffffff;
+                flex-direction: column;
+                text-align: center;
+                gap: 0;
+                padding: 30px 0;
+                box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+                z-index: 999;
+                opacity: 0;
+                visibility: hidden;
+                /* মোবাইল মেনু ট্রানজিশন মার্কির হাইট বিবেচনা করে অ্যাডজাস্ট করা */
+                transition: top 0.5s cubic-bezier(0.77, 0.2, 0.05, 1.0), opacity 0.4s ease, visibility 0.4s ease;
+            }
+
+            /* মোবাইল মেনু যখন ওপেন হবে তখন যাতে ন্যাভবারের ঠিক নিচ থেকে শুরু হয় */
+            .nav-menu.open {
+                top: 86px; /* মার্কি + মোবাইল ন্যাভবার হাইট এর ব্যালেন্স */
+                opacity: 1;
+                visibility: visible;
+            }
+
+            .nav-item {
+                width: 100%;
+                padding: 15px 0;
+            }
+
+            .nav-item a {
+                font-size: 1.1rem;
+                display: block;
+            }
+            
+            .nav-item a::after { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ==========================================================================
+         MAIN HEADER CONTAINER (MARQUEE + NAVBAR COMBINED)
+         ========================================================================== -->
+    <div class="tl-top-fixed-wrapper" id="tl-top-wrapper">
+        
+        <!-- ১. মার্কি সেকশন (Announcement Bar) -->
+        <div class="tl-marquee-wrapper">
+            <div class="tl-marquee-container">
+                <!-- ট্র্যাক ১ -->
+                <div class="tl-marquee-track">
+                    <div class="tl-marquee-item"><i class="fas fa-bullhorn"></i> স্মার্ট শপিং শুরু হোক Trendloot-এর সাথে</div>
+                    <div class="tl-marquee-item"><i class="fas fa-percentage"></i> প্রতিদিন নতুন ট্রেন্ডিং অফার </div>
+                    <div class="tl-marquee-item"><i class="fas fa-star"></i> আপনার প্রয়োজন, আমাদের সমাধান</div>
+                    <div class="tl-marquee-item"><i class="fas fa-sync-alt"></i> বাছাইকৃত ট্রেন্ডিং প্রোডাক্ট এক প্ল্যাটফর্মে</div>
+                </div>
+                <!-- ট্র্যাক ২ -->
+                <div class="tl-marquee-track" aria-hidden="true">
+                    <div class="tl-marquee-item"><i class="fas fa-bullhorn"></i> স্মার্ট শপিং শুরু হোক Trendloot-এর সাথে</div>
+                    <div class="tl-marquee-item"><i class="fas fa-percentage"></i> প্রতিদিন নতুন ট্রেন্ডিং অফার </div>
+                    <div class="tl-marquee-item"><i class="fas fa-star"></i> আপনার প্রয়োজন, আমাদের সমাধান</div>
+                    <div class="tl-marquee-item"><i class="fas fa-sync-alt"></i> বাছাইকৃত ট্রেন্ডিং প্রোডাক্ট এক প্ল্যাটফর্মে</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ২. ন্যাভবার সেকশন -->
+        <header class="tl-header" id="tl-header">
+            <div class="tl-container">
+                <nav class="navbar-wrapper">
+                    
+                    <div class="logo">
+                        <a href="https://dev-trendloot-online-store.pantheonsite.io/">trend<span>looot</span></a>
+                    </div>
+
+                    <ul class="nav-menu" id="nav-menu">
+                        <li class="nav-item"><a href="https://dev-trendloot-online-store.pantheonsite.io/">Home</a></li>
+                        <li class="nav-item"><a href="https://dev-trendloot-online-store.pantheonsite.io/shop/">Shop</a></li>
+                        <li class="nav-item"><a href="https://dev-trendloot-online-store.pantheonsite.io/about/">About</a></li>
+                        <li class="nav-item"><a href="https://dev-trendloot-online-store.pantheonsite.io/faq/">FAQ</a></li>
+                    </ul>
+
+                    <div class="nav-actions">
+                        <a href="https://dev-trendloot-online-store.pantheonsite.io/shop/" class="action-btn" aria-label="Cart">
+                            <i class="fas fa-shopping-bag"></i>
+                            <span class="cart-count">Shop</span>
+                        </a>
+                    </div>
+
+                    <button class="hamburger" id="menu-toggle" aria-label="Toggle Navigation">
+                        <i class="fas fa-bars"></i>
+                    </button>
+
+                </nav>
+            </div>
+        </header>
+
+    </div>
+
+    <!-- মেইন কন্টেন্ট বা নিচের সেকশনগুলো এর পর থেকে শুরু হবে -->
+
+    <script>
+        /* --- SCROLL EFFECT JS --- */
+        // এখন স্ক্রল ইফেক্টটি মেইন র‍্যাপার ক্লাসে অ্যাপ্লাই হবে
+        const topWrapper = document.getElementById('tl-top-wrapper');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                topWrapper.classList.add('scrolled');
+            } else {
+                topWrapper.classList.remove('scrolled');
+            }
+        });
+
+        /* --- MOBILE MENU TOGGLE JS --- */
+        const menuToggle = document.getElementById('menu-toggle');
+        const navMenu = document.getElementById('nav-menu');
+        const toggleIcon = menuToggle.querySelector('i');
+
+        menuToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('open');
+            
+            if (navMenu.classList.contains('open')) {
+                toggleIcon.classList.remove('fa-bars');
+                toggleIcon.classList.add('fa-times');
+            } else {
+                toggleIcon.classList.remove('fa-times');
+                toggleIcon.classList.add('fa-bars');
+            }
+        });
+
+        const navLinks = document.querySelectorAll('.nav-item a');
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('open');
+                toggleIcon.classList.remove('fa-times');
+                toggleIcon.classList.add('fa-bars');
+            });
+        });
+    </script>
+</body>
+</html>

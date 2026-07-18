@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - trendlooot</title>
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts (Inter & Hind Siliguri) -->
+    <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary-color: #ff3366; /* trendlooot Accent Pink */
+            --dark-color: #111111;    /* Deep Black */
+            --light-bg: #f9f9f9;      /* Light Gray */
+            --text-color: #444444;
+            --border-color: #e5e7eb;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Hind Siliguri', 'Inter', sans-serif;
+            background-color: #ffffff;
+            color: var(--text-color);
+            line-height: 1.8;
+        }
+
+        .about-wrapper {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 60px 20px;
+        }
+
+        /* Hero Section */
+        .about-hero {
+            text-align: center;
+            margin-bottom: 60px;
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        .badge {
+            background-color: rgba(255, 51, 102, 0.1);
+            color: var(--primary-color);
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            display: inline-block;
+            margin-bottom: 15px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .about-hero h1 {
+            font-size: 2.8rem;
+            color: var(--dark-color);
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        .about-hero h1 span {
+            color: var(--primary-color);
+        }
+
+        .about-hero p {
+            font-size: 1.2rem;
+            color: #666;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* Main Story Section */
+        .story-section {
+            display: block;
+            margin-bottom: 60px;
+            background: var(--light-bg);
+            padding: 40px;
+            border-radius: 16px;
+            border-left: 5px solid var(--primary-color);
+        }
+
+        .story-section h2 {
+            font-size: 1.8rem;
+            color: var(--dark-color);
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        /* Core Features Grid */
+        .features-title {
+            text-align: center;
+            margin-bottom: 35px;
+            font-size: 2rem;
+            color: var(--dark-color);
+            font-weight: 700;
+        }
+
+        .features-container {
+            display: block;
+            margin-bottom: 60px;
+        }
+
+        .feature-card {
+            background: #ffffff;
+            border: 1px solid var(--border-color);
+            padding: 30px;
+            border-radius: 14px;
+            margin-bottom: 20px;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary-color);
+            box-shadow: 0 10px 20px rgba(255, 51, 102, 0.05);
+        }
+
+        .feature-icon {
+            font-size: 2rem;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+
+        .feature-card h3 {
+            font-size: 1.4rem;
+            color: var(--dark-color);
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        /* Interactive Call To Action */
+        .cta-section {
+            background: var(--dark-color);
+            color: #ffffff;
+            text-align: center;
+            padding: 50px 30px;
+            border-radius: 16px;
+            margin-top: 40px;
+        }
+
+        .cta-section h2 {
+            font-size: 2rem;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .cta-section h2 span {
+            color: var(--primary-color);
+        }
+
+        .cta-section p {
+            color: #cccccc;
+            max-width: 600px;
+            margin: 0 auto 25px auto;
+            font-size: 1.1rem;
+        }
+
+        .cta-btn {
+            background: var(--primary-color);
+            color: #ffffff;
+            border: none;
+            padding: 12px 30px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            border-radius: 30px;
+            cursor: pointer;
+            font-family: 'Hind Siliguri', sans-serif;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(255, 51, 102, 0.3);
+        }
+
+        .cta-btn:hover {
+            background: #e02253;
+            transform: scale(1.05);
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Responsive Layout Adjustments using display block margin */
+        @media(min-width: 768px) {
+            .features-container {
+                display: table;
+                width: 100%;
+                table-layout: fixed;
+                border-collapse: separate;
+                border-spacing: 20px 0;
+                margin-left: -20px;
+                margin-right: -20px;
+            }
+            .feature-card {
+                display: table-cell;
+                vertical-align: top;
+                margin-bottom: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="about-wrapper">
+        <!-- Hero Section -->
+        <div class="about-hero">
+            <span class="badge">About Us</span>
+            <h1>Welcome to <span>trendlooot</span></h1>
+            <p>আপনার প্রতিদিনের লাইফস্টাইলকে আরও স্মার্ট, ট্রেন্ডি এবং সাশ্রয়ী করতে সেরা সব ডিল নিয়ে আমরা কাজ করছি।</p>
+        </div>
+
+        <!-- Main Mission Section -->
+        <div class="story-section">
+            <h2>আমরা কারা এবং কীভাবে কাজ করি?</h2>
+            <p>
+                <strong>trendlooot</strong> মূলত একটি মডার্ন শপিং গাইড এবং হাইব্রিড ই-কমার্স প্ল্যাটফর্ম। আমাদের মূল লক্ষ্য হলো ইন্টারনেটের হাজারো প্রোডাক্টের ভিড় থেকে সেরা কোয়ালিটির ও ট্রেন্ডি আইটেমগুলো খুঁজে আপনার সামনে হাজির করা। 
+            </p>
+            <p style="margin-top: 15px;">
+                আমরা একই সাথে দুইভাবে আমাদের কার্যক্রম পরিচালনা করি। প্রথমত, আমাদের নিজস্ব টিম দ্বারা যাচাইকৃত কিছু প্রিমিয়াম ইউনিক প্রোডাক্ট আমরা সরাসরি আমাদের নিজস্ব স্টক থেকে কাস্টমারদের কাছে পৌঁছে দিই। দ্বিতীয়ত, আমরা দেশের সবচেয়ে বড় অনলাইন মার্কেটপ্লেস <strong>Daraz (দারাজ)</strong>-এর অফিসিয়াল অ্যাফিলিয়েট পার্টনার হিসেবে কাজ করি। দারাজের লক্ষাধিক প্রোডাক্টের মধ্য থেকে বেস্ট রেটেড এবং ট্রেন্ডিং ল্যুট (Loots) বা অফারগুলো আমরা আমাদের ভিজিটরদের জন্য এখানে তালিকাভুক্ত করি, যাতে এক ক্লিকেই সেরা প্রোডাক্টটি সঠিক দামে কেনা যায়।
+            </p>
+        </div>
+
+        <!-- Features Title -->
+        <h2 class="features-title">কেন আমাদের ওপর আস্থা রাখবেন?</h2>
+
+        <!-- Core Features Container -->
+        <div class="features-container">
+            
+            <!-- Card 1 -->
+            <div class="feature-card">
+                <div class="feature-icon"><i class="fa-solid fa-handshake"></i></div>
+                <h3>দারাজ অফিসিয়াল পার্টনার</h3>
+                <p>আমাদের সাইটে থাকা দারাজ অ্যাফিলিয়েট প্রোডাক্টের লিংকে ক্লিক করলে আপনি সরাসরি দারাজের অফিশিয়াল অ্যাপ বা সাইটে গিয়ে নিরাপদ অর্ডার সম্পন্ন করতে পারেন। কোনোরকম অতিরিক্ত মূল্য ছাড়া!</p>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="feature-card">
+                <div class="feature-icon"><i class="fa-solid fa-gem"></i></div>
+                <h3>কিউরেটেড প্রিমিয়াম কালেকশন</h3>
+                <p>আমাদের নিজস্ব ক্যাটাগরির প্রোডাক্টগুলো সম্পূর্ণ নিজস্ব তত্ত্বাবধানে কোয়ালিটি নিশ্চিত করে প্যাকেজিং ও দ্রুততম সময়ে ডেলিভারি করা হয়.</p>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="feature-card">
+                <div class="feature-icon"><i class="fa-solid fa-shield-heart"></i></div>
+                <h3>নিরাপদ ও নির্ভরযোগ্য শপিং</h3>
+                <p>যেহেতু আমরা দারাজ প্ল্যাটফর্মের সাথে কাজ করি, তাই প্রতিটি অ্যাফিলিয়েট অর্ডারের ক্ষেত্রে দারাজের অফিশিয়াল রিফান্ড, ফ্রি রিটার্ন এবং কাস্টমার কেয়ার পলিসি পুরোপুরি প্রযোজ্য হয়।</p>
+            </div>
+
+        </div>
+
+        <!-- Call To Action Section (Interactive) -->
+        <div class="cta-section">
+            <h2>আজই লুফে নিন আপনার পছন্দের <span>Trend!</span></h2>
+            <p>আমাদের ট্রেন্ডিং কালেকশন এবং দারাজের সেরা অফারগুলো মিস করতে না চাইলে এখনই এক্সপ্লোর করা শুরু করুন।</p>
+            <button class="cta-btn" id="exploreBtn">শপ এক্সপ্লোর করুন</button>
+        </div>
+    </div>
+
+    <!-- JavaScript for Button Interactions -->
+    <script>
+        document.getElementById('exploreBtn').addEventListener('click', function() {
+            // নিচে 'index.html' এর জায়গায় আপনার আসল ওয়েবসাইটের শপ পেইজের লিংকটি বসিয়ে দিন
+            window.location.href = 'https://dev-trendloot-online-store.pantheonsite.io/shop/'; 
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,282 @@
+<!-- FontAwesome Icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+<style>
+    :root {
+        --primary-color: #ff3366; /* trendlooot Accent Pink */
+        --dark-color: #111111;    /* Deep Black */
+        --light-bg: #f9f9f9;      /* Light Gray Section Bg */
+        --text-color: #333333;
+        --border-color: #e5e7eb;
+    }
+
+    .faq-wrapper-el {
+        max-width: 850px;
+        margin: 0 auto;
+        padding: 10px;
+        font-family: 'Hind Siliguri', sans-serif !important;
+    }
+
+    .faq-header-el {
+        text-align: center;
+        margin-bottom: 40px;
+    }
+
+    .faq-header-el h2 {
+        font-size: 2.5rem;
+        color: var(--dark-color);
+        margin-bottom: 10px;
+        font-weight: 700;
+    }
+
+    .faq-header-el h2 span {
+        color: var(--primary-color);
+    }
+
+    .faq-header-el p {
+        color: #666;
+        font-size: 1.1rem;
+    }
+
+    /* Base FAQ Item Style */
+    .faq-item-el {
+        background: #ffffff !important;
+        border: 1px solid var(--border-color) !important;
+        border-radius: 14px !important;
+        margin-bottom: 18px !important;
+        overflow: hidden !important;
+        transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.02) !important;
+        position: relative;
+    }
+
+    /* --- GORGEOUS NEW HOVER EFFECT --- */
+    .faq-item-el:hover {
+        border-color: var(--primary-color) !important;
+        transform: translateY(-4px) !important; /* Soft lift */
+        background: linear-gradient(90deg, #ffffff 0%, rgba(255, 51, 102, 0.02) 100%) !important; /* Soft pink glow gradient */
+        box-shadow: 0 12px 24px rgba(255, 51, 102, 0.06), 0 4px 8px rgba(0, 0, 0, 0.02) !important;
+    }
+
+    /* Active State Style */
+    .faq-item-el.active {
+        border-color: var(--primary-color) !important;
+        background: #ffffff !important;
+        box-shadow: 0 15px 30px rgba(255, 51, 102, 0.08) !important;
+        transform: translateY(0) !important;
+    }
+
+    /* Question Row Area */
+    .faq-question-el {
+        width: 100% !important;
+        display: flex !important;
+        justify-content: space-between !important;
+        align-items: center !important;
+        cursor: pointer !important;
+        padding: 24px 28px !important;
+        background: none !important;
+        border: none !important;
+        box-sizing: border-box !important;
+    }
+
+    .faq-question-text {
+        text-align: left !important;
+        font-size: 1.2rem !important;
+        font-weight: 600 !important;
+        color: var(--dark-color) !important;
+        line-height: 1.5 !important;
+        padding-right: 20px !important;
+        display: block !important;
+        width: auto !important;
+        transition: color 0.3s ease;
+    }
+
+    /* Icon Container & Hover Animation */
+    .faq-icon-container {
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        width: 32px !important;
+        height: 32px !important;
+        border-radius: 50% !important;
+        background-color: #f3f4f6 !important;
+        flex-shrink: 0 !important;
+        transition: all 0.3s ease !important;
+    }
+
+    /* Icon Circle changes color on card hover */
+    .faq-item-el:hover .faq-icon-container {
+        background-color: rgba(255, 51, 102, 0.1) !important;
+    }
+
+    .faq-item-el:hover .faq-icon-el {
+        color: var(--primary-color) !important;
+        transform: scale(1.15);
+    }
+
+    .faq-icon-el {
+        font-size: 1rem !important;
+        color: var(--dark-color) !important;
+        transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), color 0.3s ease !important;
+    }
+
+    /* Active Icon Rotate state */
+    .faq-item-el.active .faq-icon-container {
+        background-color: var(--primary-color) !important;
+    }
+
+    .faq-item-el.active .faq-icon-el {
+        transform: rotate(135deg) !important;
+        color: #ffffff !important;
+    }
+
+    .faq-item-el.active .faq-question-text {
+        color: var(--primary-color) !important;
+    }
+
+    /* Smooth Slide-down Content Area */
+    .faq-answer-el {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        background-color: #fcfcfc !important;
+    }
+
+    .faq-answer-content-el {
+        padding: 4px 28px 24px 28px !important;
+        color: #555555 !important;
+        font-size: 1.05rem !important;
+        line-height: 1.8 !important;
+        text-align: left !important;
+    }
+
+    .faq-item-el.active .faq-answer-el {
+        border-top: 1px solid #f3f4f6 !important;
+    }
+
+    .badge-el {
+        background-color: rgba(255, 51, 102, 0.1);
+        color: var(--primary-color);
+        padding: 5px 14px;
+        border-radius: 20px;
+        font-size: 0.85rem;
+        display: inline-block;
+        margin-bottom: 15px;
+        font-weight: 600;
+    }
+</style>
+
+<div class="faq-wrapper-el">
+    <div class="faq-header-el">
+        <span class="badge-el">FAQ Page</span>
+        <h2>সাধারণ কিছু <span>জিজ্ঞাসা ?</span></h2>
+        <p>trendlooot থেকে কেনাকাটা এবং আমাদের প্রোডাক্টের উৎস সম্পর্কে বিস্তারিত জানুন এখানে。</p>
+    </div>
+
+    <!-- FAQ Item 1 -->
+    <div class="faq-item-el">
+        <div class="faq-question-el">
+            <span class="faq-question-text">trendlooot-এ কি সরাসরি প্রোডাক্ট বিক্রি করা হয় নাকি এটি একটি অ্যাফিলিয়েট সাইট?</span>
+            <div class="faq-icon-container">
+                <i class="fa-solid fa-plus faq-icon-el"></i>
+            </div>
+        </div>
+        <div class="faq-answer-el">
+            <div class="faq-answer-content-el">
+                আমাদের ওয়েবসাইটে দুই ধরণের প্রোডাক্ট রয়েছে। কিছু প্রিমিয়াম কালেকশন আমাদের নিজস্ব স্টক থেকে সরাসরি ডেলিভারি করা হয়। এছাড়া ট্রেন্ডি ও সেরা ডিলগুলোর জন্য আমরা দেশের অন্যতম বড় ই-কমার্স প্ল্যাটফর্ম <strong>Daraz (দারাজ)</strong>-এর অফিসিয়াল অ্যাফিলিয়েট পার্টনার হিসেবে কাজ করি।
+            </div>
+        </div>
+    </div>
+
+    <!-- FAQ Item 2 -->
+    <div class="faq-item-el">
+        <div class="faq-question-el">
+            <span class="faq-question-text">দারাজ অ্যাফিলিয়েট প্রোডাক্টগুলোর অর্ডার এবং ডেলিভারি প্রসেস কেমন?</span>
+            <div class="faq-icon-container">
+                <i class="fa-solid fa-plus faq-icon-el"></i>
+            </div>
+        </div>
+        <div class="faq-answer-el">
+            <div class="faq-answer-content-el">
+                আমাদের সাইটে থাকা দারাজ অ্যাফিলিয়েট প্রোডাক্টগুলোর 'Buy Now' বাটনে ক্লিক করলে আপনাকে সরাসরি দারাজের অফিশিয়াল অ্যাপ বা ওয়েবসাইটে নিয়ে যাওয়া হবে। অর্ডার কনফার্মেশন, পেমেন্ট এবং দ্রুত ডেলিভারির সম্পূর্ণ দায়িত্ব দারাজ (Daraz) অফিশিয়াল ম্যানেজমেন্টের মাধ্যমে সম্পন্ন হবে।
+            </div>
+        </div>
+    </div>
+
+    <!-- FAQ Item 3 -->
+    <div class="faq-item-el">
+        <div class="faq-question-el">
+            <span class="faq-question-text">প্রোডাক্টে সমস্যা থাকলে রিটার্ন বা রিফান্ড পলিসি কী?</span>
+            <div class="faq-icon-container">
+                <i class="fa-solid fa-plus faq-icon-el"></i>
+            </div>
+        </div>
+        <div class="faq-answer-el">
+            <div class="faq-answer-content-el">
+                যেহেতু আপনি দারাজ প্ল্যাটফর্ম থেকে অর্ডারটি সম্পন্ন করছেন, তাই দারাজের অফিশিয়াল রিটার্ন ও রিফান্ড পলিসি প্রযোজ্য হবে। প্রোডাক্টের ক্যাটাগরি অনুযায়ী দারাজের নির্দিষ্ট সময়ের (যেমন: DarazMall-এর জন্য ১৪ দিন এবং সাধারণ সেলারের জন্য ৭ দিন) মধ্যে আপনি দারাজ অ্যাপ বা ওয়েবসাইটের মাধ্যমে খুব সহজেই ফ্রি রিটার্ন বা রিফান্ডের রিকোয়েস্ট করতে পারবেন। আমাদের নিজস্ব স্টকের প্রোডাক্টের ক্ষেত্রেও আমরা এই একই স্ট্যান্ডার্ড পলিসি ফলো করি।
+            </div>
+        </div>
+    </div>
+
+    <!-- FAQ Item 4 -->
+    <div class="faq-item-el">
+        <div class="faq-question-el">
+            <span class="faq-question-text">ডেলিভারি চার্জ কত এবং কতদিন সময় লাগবে?</span>
+            <div class="faq-icon-container">
+                <i class="fa-solid fa-plus faq-icon-el"></i>
+            </div>
+        </div>
+        <div class="faq-answer-el">
+            <div class="faq-answer-content-el">
+                অ্যাফিলিয়েট প্রোডাক্টের ক্ষেত্রে ডেলিভারি চার্জ এবং সময় সম্পূর্ণভাবে দারাজের লজিস্টিকস (Daraz Express) এবং সেলারের লোকেশনের ওপর নির্ভর করে, যা অর্ডার করার সময় চেকআউট পেজে দেখতে পাবেন। আমাদের নিজস্ব প্রোডাক্টের ক্ষেত্রে ঢাকার ভেতরে ২-৩ দিন এবং ঢাকার বাইরে ৩-৫ দিনের মধ্যে ডেলিভারি দেওয়া হয়।
+            </div>
+        </div>
+    </div>
+
+    <!-- FAQ Item 5 -->
+    <div class="faq-item-el">
+        <div class="faq-question-el">
+            <span class="faq-question-text">দারাজের অফিশিয়াল দাম আর আপনাদের সাইটের দাম কি এক?</span>
+            <div class="faq-icon-container">
+                <i class="fa-solid fa-plus faq-icon-el"></i>
+            </div>
+        </div>
+        <div class="faq-answer-el">
+            <div class="faq-answer-content-el">
+                জি, একদম এক! আমরা দারাজের অফিশিয়াল এপিআই এবং পার্টনার সিস্টেম ব্যবহার করি। দারাজে যে প্রোডাক্টের যা দাম কিংবা অফার বা ডিসকাউন্ট থাকে, আমাদের এখানেও ঠিক একই প্রাইস শো করে। বাড়তি কোনো চার্জ নেওয়া হয় না।
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const questions = document.querySelectorAll('.faq-question-el');
+        
+        if(questions.length > 0) {
+            questions.forEach(button => {
+                button.addEventListener('click', function(e) {
+                    const faqItem = this.parentElement;
+                    const answer = faqItem.querySelector('.faq-answer-el');
+
+                    // Close other items
+                    document.querySelectorAll('.faq-item-el').forEach(item => {
+                        if (item !== faqItem && item.classList.contains('active')) {
+                            item.classList.remove('active');
+                            item.querySelector('.faq-answer-el').style.maxHeight = null;
+                        }
+                    });
+
+                    // Toggle Current
+                    faqItem.classList.toggle('active');
+
+                    if (faqItem.classList.contains('active')) {
+                        answer.style.maxHeight = answer.scrollHeight + "px";
+                    } else {
+                        answer.style.maxHeight = null;
+                    }
+                });
+            });
+        }
+    });
+</script>

@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shop Collection - Trendlooot</title>
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Global & Scope Styles */
+        :root {
+            --tl-primary: #ff3860;
+            --tl-dark: #111111;
+            --tl-text: #2b2b2b;
+            --tl-muted: #6c757d;
+            --tl-border: #e2e8f0;
+            --tl-white: #ffffff;
+            --tl-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+            --tl-hover-bg: #fff0f3;
+            --tl-hover-shadow: 0 6px 20px rgba(255, 56, 96, 0.15);
+        }
+
+        .shop-page-wrapper * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .shop-page-wrapper {
+            background-color: #fcfcfc;
+            color: var(--tl-text);
+            padding: 40px 15px 60px;
+            width: 100%;
+        }
+
+        .shop-container {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        /* 1. Heading & Paragraph Section */
+        .shop-header {
+            text-align: center;
+            margin-bottom: 35px;
+        }
+
+        .shop-header h1 {
+            font-size: 34px;
+            color: var(--tl-dark);
+            margin-bottom: 12px;
+            font-weight: 700;
+        }
+
+        .shop-header h1 span {
+            color: var(--tl-primary);
+        }
+
+        .shop-header p {
+            font-size: 15px;
+            color: var(--tl-muted);
+            max-width: 650px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        /* 2. Dropdowns Filter Section */
+        .shop-filter-box {
+            background: var(--tl-white);
+            padding: 25px 30px;
+            border-radius: 12px;
+            box-shadow: var(--tl-shadow);
+            border: 1px solid var(--tl-border);
+        }
+
+        .filter-grid {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .dropdown-wrapper {
+            position: relative;
+            flex: 1;
+            min-width: 260px;
+            max-width: 400px;
+        }
+
+        /* Updated Main Button Hover Effects */
+        .dropdown-btn {
+            width: 100%;
+            padding: 14px 22px;
+            background-color: var(--tl-white);
+            border: 2px solid var(--tl-border);
+            border-radius: 10px;
+            font-size: 15px;
+            font-weight: 600;
+            color: var(--tl-dark);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+
+        /* Hover & Active State Design */
+        .dropdown-btn:hover, 
+        .dropdown-btn.active {
+            background-color: var(--tl-hover-bg);
+            border-color: var(--tl-primary);
+            color: var(--tl-primary);
+            transform: translateY(-2px);
+            box-shadow: var(--tl-hover-shadow);
+        }
+
+        .dropdown-btn i {
+            transition: transform 0.3s ease;
+        }
+
+        .dropdown-btn.active i {
+            transform: rotate(180deg);
+        }
+
+        .dropdown-menu {
+            position: absolute;
+            top: 108%;
+            left: 0;
+            width: 100%;
+            background-color: var(--tl-white);
+            border-radius: 10px;
+            box-shadow: 0 12px 30px rgba(0,0,0,0.1);
+            list-style: none;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(10px);
+            transition: all 0.3s ease;
+            z-index: 99;
+            overflow: hidden;
+            border: 1px solid var(--tl-border);
+        }
+
+        .dropdown-menu.show {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .dropdown-menu li a {
+            display: block;
+            padding: 12px 20px;
+            font-size: 14px;
+            color: var(--tl-text);
+            text-decoration: none;
+            transition: background 0.2s ease, color 0.2s ease, padding 0.2s ease;
+        }
+
+        .dropdown-menu li a:hover {
+            background-color: var(--tl-hover-bg);
+            color: var(--tl-primary);
+            padding-left: 25px;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .shop-header h1 {
+                font-size: 26px;
+            }
+
+            .shop-filter-box {
+                padding: 20px 15px;
+            }
+
+            .filter-grid {
+                flex-direction: column;
+            }
+
+            .dropdown-wrapper {
+                width: 100%;
+                max-width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <main class="shop-page-wrapper">
+        <div class="shop-container">
+            
+            <!-- 1. Heading & Paragraph Section -->
+            <section class="shop-header">
+                <h1>Explore Our <span>Shop Categories & Brands</span></h1>
+                <p>আমাদের সংগ্রহে থাকা সেরা ক্যাটাগরি এবং পছন্দের ব্র্যান্ড বেছে নিয়ে আপনার প্রয়োজনীয় পণ্যগুলো দ্রুত ও সহজে এক্সপ্লোর করুন।</p>
+            </section>
+
+            <!-- 2. Dropdown Menus Section -->
+            <section class="shop-filter-box">
+                <div class="filter-grid">
+                    
+                    <!-- Product Categories Dropdown -->
+                    <div class="dropdown-wrapper">
+                        <button class="dropdown-btn" id="categoryBtn">
+                            <span>Product Categories</span>
+                            <i class="fa-solid fa-chevron-down"></i>
+                        </button>
+                        <ul class="dropdown-menu" id="categoryMenu">
+                            <li><a href="https://dev-trendloot-online-store.pantheonsite.io/product-category/home-decors/">Home Decors</a></li>
+                            <li><a href="https://dev-trendloot-online-store.pantheonsite.io/product-category/clothes/">Clothes</a></li>
+                            <li><a href="https://dev-trendloot-online-store.pantheonsite.io/product-category/digital-products/">Digital Products</a></li>
+                            <li><a href="https://dev-trendloot-online-store.pantheonsite.io/product-category/kitchen-products/">Kitchen Products</a></li>
+                            <li><a href="https://dev-trendloot-online-store.pantheonsite.io/product-category/baby-products/">Baby Products</a></li>
+                        </ul>
+                    </div>
+
+                    <!-- Shop By Brands Dropdown -->
+                    <div class="dropdown-wrapper">
+                        <button class="dropdown-btn" id="brandBtn">
+                            <span>Shop By Brands</span>
+                            <i class="fa-solid fa-chevron-down"></i>
+                        </button>
+                        <ul class="dropdown-menu" id="brandMenu">
+                            <li><a href="https://dev-trendloot-online-store.pantheonsite.io/product-category/trendloot/">Trendloot</a></li>
+                            <li><a href="https://dev-trendloot-online-store.pantheonsite.io/product-category/daraz/">Daraz</a></li>
+                            <li><a href="https://dev-trendloot-online-store.pantheonsite.io/product-category/amazon/">Amazon</a></li>
+                            <li><a href="https://dev-trendloot-online-store.pantheonsite.io/product-category/shopify/">Shopify</a></li>
+                        </ul>
+                    </div>
+
+                </div>
+            </section>
+
+        </div>
+    </main>
+
+    <!-- JavaScript Logic -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const categoryBtn = document.getElementById('categoryBtn');
+            const categoryMenu = document.getElementById('categoryMenu');
+            const brandBtn = document.getElementById('brandBtn');
+            const brandMenu = document.getElementById('brandMenu');
+
+            // Category Dropdown Toggle
+            categoryBtn.addEventListener('click', function(e) {
+                e.stopPropagation();
+                categoryMenu.classList.toggle('show');
+                categoryBtn.classList.toggle('active');
+                
+                // Close Brand Dropdown if open
+                brandMenu.classList.remove('show');
+                brandBtn.classList.remove('active');
+            });
+
+            // Brand Dropdown Toggle
+            brandBtn.addEventListener('click', function(e) {
+                e.stopPropagation();
+                brandMenu.classList.toggle('show');
+                brandBtn.classList.toggle('active');
+                
+                // Close Category Dropdown if open
+                categoryMenu.classList.remove('show');
+                categoryBtn.classList.remove('active');
+            });
+
+            // Close all dropdowns when clicking outside
+            document.addEventListener('click', function() {
+                categoryMenu.classList.remove('show');
+                categoryBtn.classList.remove('active');
+                brandMenu.classList.remove('show');
+                brandBtn.classList.remove('active');
+            });
+        });
+    </script>
+</body>
+</html>
